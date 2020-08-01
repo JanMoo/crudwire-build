@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use JanMoo\Crudwire\Facades\Crudwire;
 
 /*
 |--------------------------------------------------------------------------
