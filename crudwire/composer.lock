@@ -7,65 +7,6 @@
     "content-hash": "65915aa52eb7cb10dc0547bda1cce344",
     "packages": [
         {
-            "name": "JanMoo/Crudwire",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "C:/Users/Janmo/sites/crudwire/crudwire/packages/JanMoo/Crudwire",
-                "reference": "a69e338db3f6b9f79de76e7e214743879d80d310"
-            },
-            "require": {
-                "illuminate/support": "~5|~6|~7",
-                "livewire/livewire": "^1.3"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.1",
-                "orchestra/testbench": "~3|~4",
-                "phpunit/phpunit": "^8.0",
-                "sempro/phpunit-pretty-print": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "JanMoo\\Crudwire\\CrudwireServiceProvider"
-                    ],
-                    "aliases": {
-                        "Crudwire": "JanMoo\\Crudwire\\Facades\\Crudwire"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "JanMoo\\Crudwire\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "JanMoo\\Crudwire\\Tests\\": "tests"
-                }
-            },
-            "license": [
-                "Mit"
-            ],
-            "authors": [
-                {
-                    "name": "Jan Moorkens",
-                    "email": "janmoorkens@yahoo.com",
-                    "homepage": "https://jan.moorkens.mtantwerp.eu"
-                }
-            ],
-            "description": ":package_description",
-            "homepage": "https://github.com/janmoo/crudwire",
-            "keywords": [
-                "Crudwire",
-                "Laravel"
-            ],
-            "transport-options": {
-                "relative": false
-            }
-        },
-        {
             "name": "asm89/stack-cors",
             "version": "v2.0.1",
             "source": {
@@ -801,6 +742,64 @@
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
+            "name": "janmoo/crudwire",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "C:/Users/Janmo/sites/crudwire/crudwire/packages/JanMoo/Crudwire",
+                "reference": "9e9aefe2040b25fd09d9154cc6ddb548481af821"
+            },
+            "require": {
+                "illuminate/support": "~5|~6|~7"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3|~4",
+                "phpunit/phpunit": "^8.0",
+                "sempro/phpunit-pretty-print": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JanMoo\\Crudwire\\CrudwireServiceProvider"
+                    ],
+                    "aliases": {
+                        "Crudwire": "JanMoo\\Crudwire\\Facades\\Crudwire"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JanMoo\\Crudwire\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "JanMoo\\Crudwire\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "license"
+            ],
+            "authors": [
+                {
+                    "name": "author name",
+                    "email": "author email",
+                    "homepage": "author homepage"
+                }
+            ],
+            "description": ":package_description",
+            "homepage": "https://github.com/janmoo/crudwire",
+            "keywords": [
+                "Crudwire",
+                "Laravel"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "laravel/framework",
             "version": "v7.22.4",
             "source": {
@@ -1205,69 +1204,6 @@
                 }
             ],
             "time": "2020-07-26T07:20:36+00:00"
-        },
-        {
-            "name": "livewire/livewire",
-            "version": "v1.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/livewire/livewire.git",
-                "reference": "07f0b2d41a7837b4d6199da7b591169a84fbaabe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/07f0b2d41a7837b4d6199da7b591169a84fbaabe",
-                "reference": "07f0b2d41a7837b4d6199da7b591169a84fbaabe",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
-                "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
-                "illuminate/validation": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
-                "php": "^7.1.3",
-                "symfony/http-kernel": "^4.0|^5.0"
-            },
-            "require-dev": {
-                "laravel/framework": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
-                "mockery/mockery": "^1.3.1",
-                "orchestra/testbench": "~3.6.0|~3.7.0|~3.8.0|^4.0|^5.0",
-                "phpunit/phpunit": "^7.5.15|^8.4|^9.0",
-                "psy/psysh": "@stable"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Livewire\\LivewireServiceProvider"
-                    ],
-                    "aliases": {
-                        "Livewire": "Livewire\\Livewire"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Livewire\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Caleb Porzio",
-                    "email": "calebporzio@gmail.com"
-                }
-            ],
-            "description": "A front-end framework for Laravel.",
-            "funding": [
-                {
-                    "url": "https://github.com/calebporzio",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-07-16T14:43:11+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4702,16 +4638,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.3.4",
+            "version": "2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "87335b120bc9652e4ee2bf285b7322a785211476"
+                "reference": "58dc4a8df3d41174c677a370b6779b694e4539e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/87335b120bc9652e4ee2bf285b7322a785211476",
-                "reference": "87335b120bc9652e4ee2bf285b7322a785211476",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/58dc4a8df3d41174c677a370b6779b694e4539e7",
+                "reference": "58dc4a8df3d41174c677a370b6779b694e4539e7",
                 "shasum": ""
             },
             "require": {
@@ -4770,7 +4706,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2020-07-27T15:17:39+00:00"
+            "time": "2020-08-01T21:20:01+00:00"
         },
         {
             "name": "facade/ignition-contracts",

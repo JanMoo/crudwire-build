@@ -62,7 +62,7 @@
                 margin-bottom: 30px;
             }
         </style>
-    <livewire:styles>
+
     </head>
     <body>
 
@@ -71,10 +71,10 @@
             <div class="row">
                 <div class="col-md-6">
                     <h1>hello world</h1>
-                    @livewire('contact-component')
+
                 </div>
             </div>
         </div>
-        <livewire:scripts>
+
     </body>
 </html>
