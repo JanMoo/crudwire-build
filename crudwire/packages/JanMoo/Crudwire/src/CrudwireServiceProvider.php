@@ -1,6 +1,6 @@
 <?php
 
-namespace JanMoo\Crudwire;
+namespace Janmoo\Crudwire;
 
 use Illuminate\Support\ServiceProvider;
 

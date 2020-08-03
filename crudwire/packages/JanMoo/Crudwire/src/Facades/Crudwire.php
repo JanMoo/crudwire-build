@@ -1,6 +1,6 @@
 <?php
 
-namespace JanMoo\Crudwire\Facades;
+namespace Janmoo\Crudwire\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
