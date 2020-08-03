@@ -3,6 +3,8 @@
 namespace Janmoo\Crudwire;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
+use Janmoo\Crudwire\Components\Counter;
 
 class CrudwireServiceProvider extends ServiceProvider
 {
@@ -14,9 +16,11 @@ class CrudwireServiceProvider extends ServiceProvider
     public function boot()
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'janmoo');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'janmoo');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'crudwire');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        Livewire::component('crudwire::counter', Counter::class);
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
@@ -48,7 +52,7 @@ class CrudwireServiceProvider extends ServiceProvider
     {
         return ['crudwire'];
     }
-    
+
     /**
      * Console-specific booting.
      *
