@@ -1,16 +1,20 @@
 <?php
 namespace Janmoo\Crudwire\Components;
 
+use Illuminate\Foundation\Auth\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
 class Crud extends Component
 {
+    public $users;
+
+    public function mount(){
+        $this->users = User::all();
+    }
 
     public function render()
     {
-
-        $users =  DB::table('users')->get();
-        return view('crudwire::crud',['users' => $users]);
+        return view('crudwire::crud');
     }
 }
