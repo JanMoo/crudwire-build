@@ -5,6 +5,7 @@ namespace Janmoo\Crudwire;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Janmoo\Crudwire\Components\Counter;
+use Janmoo\Crudwire\Components\Crud;
 
 class CrudwireServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,7 @@ class CrudwireServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         Livewire::component('crudwire::counter', Counter::class);
+        Livewire::component('crudwire::crud', Crud::class);
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
