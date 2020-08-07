@@ -6,9 +6,8 @@
                 <th scope="col">name</th>
                 <th scope="col">email</th>
                 <th scope="col">email verified at</th>
-                <th scope="col">password</th>
-                <th scope="col">edit</th>
-                <th scope="col">delete</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
