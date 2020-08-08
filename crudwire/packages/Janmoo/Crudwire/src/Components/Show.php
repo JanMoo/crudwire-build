@@ -30,8 +30,9 @@ class show extends Component
     public function updated($field)
     {
         $this->validateOnly($field, [
-            'name'  => 'min:6',
-            'email' => 'email',
+            'name'        => 'min:6',
+            'email'       => 'email||unique:users',
+            'verified_at' => 'email',
 
         ]);
     }
