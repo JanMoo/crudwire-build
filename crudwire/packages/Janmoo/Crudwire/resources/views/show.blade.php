@@ -13,14 +13,20 @@
             <input form="edituser"type="text" name="" id="" value="{{ $email_verified_at}}"  wire:model="email_verified_at">
             @error('email_verified_at') <span class="error">{{ $message }}</span> @enderror
         </td>
-        <td><button wire:click="cancel">cancel</button></td>
-        <td><form wire:submit.prevent="submit" id="edituser" action=""><button type="submit">save</button></form></td>
+        <td>
+            <button class="btn btn-danger" wire:click="cancel">cancel</button>
+        </td>
+        <td>
+            <form  wire:submit.prevent="submit" id="edituser" action="">
+                <button class="btn btn-success" type="submit">save</button>
+            </form>
+        </td>
     @else
         <td><p>{{ $user->id }}</p></td>
         <td><p>{{ $user->name }}</p></td>
         <td><p>{{ $user->email }}</p></td>
         <td><p>{{ $user->email_verified_at }}</p></td>
-        <td><button wire:click="edit">edit</button></td>
-        <td><button wire:click="destroy">delete</button></td>
+        <td><button class="btn btn-success" wire:click="edit">edit</button></td>
+        <td><button class="btn btn-danger"  wire:click="destroy">delete</button></td>
     @endif
 </tr>

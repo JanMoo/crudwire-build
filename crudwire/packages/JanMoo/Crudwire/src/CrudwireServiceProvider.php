@@ -8,6 +8,7 @@ use Janmoo\Crudwire\Components\Counter;
 use Janmoo\Crudwire\Components\Crud;
 use Janmoo\Crudwire\Components\Show;
 use Janmoo\Crudwire\Components\Edit;
+use Janmoo\Crudwire\Components\Create;
 
 class CrudwireServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,7 @@ class CrudwireServiceProvider extends ServiceProvider
         Livewire::component('crudwire::crud', Crud::class);
         Livewire::component('crudwire::edit', Edit::class);
         Livewire::component('crudwire::show', Show::class);
+        Livewire::component('crudwire::create', Create::class);
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
