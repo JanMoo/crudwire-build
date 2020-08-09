@@ -2,6 +2,11 @@
     <table class="table">
         <thead>
             <tr>
+                <input type="text" name="" id="" wire:model="searchterm">
+            </tr>
+        </thead>
+        <thead>
+            <tr>
                 <th scope="col">user id</th>
                 <th scope="col">name</th>
                 <th scope="col">email</th>
@@ -16,4 +21,5 @@
             @endforeach
         </tbody>
     </table>
+
 </div>

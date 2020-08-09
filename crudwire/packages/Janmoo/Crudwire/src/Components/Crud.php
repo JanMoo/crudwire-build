@@ -8,13 +8,19 @@ use Illuminate\Support\Facades\DB;
 class Crud extends Component
 {
     public $users;
+    public $searchterm;
 
     public function mount(){
-        $this->users = User::all();
+
     }
 
     public function render()
     {
+        $searchterm         = '%'.$this->searchterm.'%';
+        $this->users        = User::Where('name', 'like', $searchterm )
+                                ->orWhere('email', 'like', $searchterm )
+                                ->get();
+
         return view('crudwire::crud');
     }
 }
