@@ -4,23 +4,26 @@ namespace Janmoo\Crudwire\Components;
 use Illuminate\Foundation\Auth\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
 
 class Crud extends Component
 {
-    public $users;
-    public $searchterm;
+    use WithPagination;
 
-    public function mount(){
+    public $results_per_page = 100;
+    public $search;
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
     }
 
     public function render()
     {
-        $searchterm         = '%'.$this->searchterm.'%';
-        $this->users        = User::Where('name', 'like', $searchterm )
-                                ->orWhere('email', 'like', $searchterm )
-                                ->get();
-
-        return view('crudwire::crud');
+        return view('crudwire::crud',[
+            'users' => User::Where('name', 'like', '%'.$this->search.'%' )
+                        ->orWhere('email', 'like', '%'.$this->search.'%' )
+                        ->paginate($this->results_per_page),
+        ]);
     }
 }
