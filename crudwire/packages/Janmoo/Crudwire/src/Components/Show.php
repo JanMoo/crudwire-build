@@ -32,9 +32,9 @@ class show extends Component
     public function updated($field)
     {
         $this->validateOnly($field, [
-            'name'              => 'min:6',
+            'name'              => 'min:2',
             'email'             => 'email',
-            'email_verified_at' => 'email',
+            'email_verified_at' => 'date-format:Y-m-d G:i:s',
 
         ]);
     }
@@ -44,7 +44,7 @@ class show extends Component
         $this->validate([
             'name'                => 'required|min:6',
             'email'               => 'required|email',
-            'email_verified_at'   => 'nullable|date-format:Y-m-d G:i:s'
+            'email_verified_at'   => 'nullable|date-format:Y-m-d G:i:s',
         ]);
 
 

@@ -1,11 +1,28 @@
 <div class="table-responsive">
     <table class="table table-hover">
         <thead>
+            @livewire('crudwire::create')
             <tr>
-                <th colspan="2">
+                <th colspan="1">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search by email or username" aria-label="Search" wire:model="search">
                 </th>
-                <th colspan="4">
+                <th colspan="2">
+                    <label for="orderby">sort by:</label>
+                    <select name="orderby" id="" wire:model="sortby">
+                        <option value="'id' , 'asc'" > id ascending </option>
+                        <option value="'id' , 'desc'"> id descending</option>
+                        <option value="'name' , 'asc'"> name acending</option>
+                        <option value="'name' , 'desc'"> name descending</option>
+                        <option value="'email' , 'asc'"> email ascending</option>
+                        <option value="'email' , 'desc'"> email descending</option>
+                        <option value="'email_verified_at' , 'asc'"> email verified at ascending</option>
+                        <option value="'email_verified_at' , 'desc'"> email verified at descending</option>
+                    </select>
+                </th>
+                <th colspan="1">
+                    <button wire:click="dump">dump</button>
+                </th>
+                <th colspan="2">
                     <label for="results-per-page">results per page:</label>
                     <select name="results-per-page" id="" wire:model="results_per_page">
                         <option value="10">10</option>
