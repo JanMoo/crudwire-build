@@ -10,17 +10,16 @@ class Crud extends Component
 {
     use WithPagination;
 
-    public $results_per_page, $search, $sortby, $sortAsc;
+    public $results_per_page, $search, $sortby, $ascdesc;
     public function mount()
     {
-        $this->sortby = "'id', 'asc'";
+        $this->sortby = "id";
+        $this->ascdesc= "asc";
+
     }
-
-
     public function dump()
     {
-
-        dd($this->sortby);
+        return redirect()->route('register');
 
     }
 
@@ -35,7 +34,7 @@ class Crud extends Component
         return view('crudwire::crud',[
             'users' => User::Where('name', 'like', '%'.$this->search.'%' )
                         ->orWhere('email', 'like', '%'.$this->search.'%' )
-                        ->orderBy($this->sortby)
+                        ->orderBy($this->sortby, $this->ascdesc)
                         ->paginate($this->results_per_page),
         ]);
     }

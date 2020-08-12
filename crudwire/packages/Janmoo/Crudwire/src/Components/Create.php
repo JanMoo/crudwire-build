@@ -3,6 +3,7 @@ namespace Janmoo\Crudwire\Components;
 
 use Livewire\Component;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -23,6 +24,7 @@ class Create extends Component
 
     public function create()
     {
+
         //make data array
         $data = [
             "name"                  => $this->name,
