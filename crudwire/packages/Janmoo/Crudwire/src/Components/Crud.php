@@ -13,15 +13,12 @@ class Crud extends Component
     public $results_per_page, $search, $sortby, $ascdesc;
     public function mount()
     {
-        $this->sortby = "id";
-        $this->ascdesc= "asc";
+        $this->sortby           = "id";
+        $this->ascdesc          = "asc";
+        $this->createnewuser    = false;
 
     }
-    public function dump()
-    {
-        return redirect()->route('register');
 
-    }
 
     public function updatingSearch()
     {
