@@ -65,7 +65,7 @@
     "repositories": {
         "janmoo/crudwire": {
             "type": "path",
-            "url": "C:\\Users\\Janmo\\sites\\crudwire\\crudwire\\packages/Janmoo/Crudwire"
+            "url": "packages/Janmoo/Crudwire"
         }
     }
 }
