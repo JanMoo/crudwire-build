@@ -24,9 +24,8 @@ class CrudwireServiceProvider extends ServiceProvider
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/../routes/routes.php');
 
-        Livewire::component('crudwire::counter', Counter::class);
+
         Livewire::component('crudwire::crud', Crud::class);
-        Livewire::component('crudwire::edit', Edit::class);
         Livewire::component('crudwire::show', Show::class);
 
 
@@ -45,7 +44,7 @@ class CrudwireServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/crudwire.php', 'crudwire');
 
-        $this->app->make('Janmoo\Crudwire\CrudwireUsercontroller');
+        //$this->app->make('Janmoo\Crudwire\CrudwireUsercontroller');
         // Register the service the package provides.
         $this->app->singleton('crudwire', function ($app) {
             return new Crudwire;
@@ -75,9 +74,9 @@ class CrudwireServiceProvider extends ServiceProvider
         ], 'crudwire.config');
 
         // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/janmoo'),
-        ], 'crudwire.views');*/
+        $this->publishes([
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/crudwire'),
+        ], 'crudwire.views');
 
         // Publishing assets.
         /*$this->publishes([

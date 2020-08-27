@@ -2,72 +2,63 @@
 namespace Janmoo\Crudwire\Components;
 
 use Illuminate\Foundation\Auth\User;
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+
 
 class show extends Component
 {
-    public $hidden, $userid, $user;
+    public $hidden, $userid, $user, $confirmation, $columns;
 
-    public function mount(User $user)
+    /**
+     * mount
+     *
+     * @param  mixed $user
+     * @param  mixed $columns
+     * @return void
+     */
+    public function mount(User $user, $columns)
     {
         $this->user               = $user;
-        $this->userid             = $user->id;
+        $this->columns            = $columns;
     }
 
-    public function edit()
-    {
-      return redirect()->route('crudwireshow', ['id' => $this->userid]);
-    }
-
+    /**
+     * cancel
+     *
+     * @return void
+     */
     public function cancel()
     {
-        $this->edit= false;
-        $this->mount($this->user);
+        $this->confirmation = null;
     }
 
-
-
-    public function submit(){
-
-        $this->validate([
-            'name'                => 'required|min:6',
-            'email'               => 'required|email',
-            'email_verified_at'   => 'nullable|date-format:Y-m-d G:i:s',
-        ]);
-
-
-
-        if($this->email_verified_at){
-            $record = DB::table('users')
-                    ->where('id', $this->user->id)
-                    ->update([
-                        'name'                  => $this->name,
-                        'email'                 => $this->email,
-                        'email_verified_at'     => $this->email_verified_at
-                    ]);
-        }else{
-            $record = DB::table('users')
-                    ->where('id', $this->user->id)
-                    ->update([
-                        'name'      => $this->name,
-                        'email'     => $this->email
-                    ]);
-        }
-
-        $this->user->name                        = $this->name;
-        $this->user->email                       = $this->email;
-        $this->user->email_verified_at           = $this->email_verified_at;
-
-        $this->cancel();
+    /**
+     * kill
+     *
+     * @return void
+     */
+    public function kill()
+    {
+        $this->confirmation = $this->user->id;
     }
 
-    public function destroy(){
+    /**
+     * destroy
+     *
+     * @return void
+     */
+    public function destroy()
+    {
         User::destroy($this->user->id);
 
         $this->hidden = true;
     }
 
+    /**
+     * render
+     *
+     * @return void
+     */
     public function render()
     {
         return view('crudwire::show');

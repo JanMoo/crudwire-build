@@ -20,4 +20,4 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-route::livewire('crudwire', 'crudwire::crud')->layout('crudwire::layouts.base');
+//route::livewire('crudwire', 'crudwire::crud')->layout('crudwire::layouts.base');

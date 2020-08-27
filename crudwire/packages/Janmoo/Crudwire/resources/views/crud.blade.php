@@ -10,53 +10,49 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th colspan="1">
-                                    <input class="form-control mr-sm-2" type="search" placeholder="Search by email or username" aria-label="Search" wire:model="search">
+                                <th colspan="3">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search by email or username" aria-label="Search" wire:model.debounce.250ms="search">
                                 </th>
-                                <th colspan="1">
+                                <th colspan="2">
                                     <label for="orderby">sort by:</label>
-                                    <select name="orderby" wire:model="sortby">
-                                        <option value="id" > id </option>
-                                        <option value="name"> name </option>
-                                        <option value="email"> email </option>
-                                        <option value="email_verified_at"> email verified at </option>
+                                    <select name="orderby" wire:model="sortBy">
+                                        @foreach ($columns as $columnName)
+                                           <option value="{{$columnName}}">{{str_replace('_',' ',$columnName )}}</option>
+                                        @endforeach
                                     </select>
                                 </th>
-                                <th colspan="1">
+                                <th colspan="2">
                                     <label for="ascdesc">sort by:</label>
-                                    <select name="ascdesc" wire:model="ascdesc">
+                                    <select name="ascdesc" wire:model="ascDesc">
                                         <option value="asc" >asc</option>
                                         <option value="desc">descending</option>
                                     </select>
                                 </th>
-                                <th colspan="1">
-                                    <a href="crudwire/user" class="btn btn-primary">create new user</a>
+                                <th colspan="{{ $columnCount = count($columns)-5}} "></th>
+                            </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <a href="{{route('crudwire.user.create')}}" class="btn btn-primary">create new user</a>
                                 </th>
                                 <th colspan="2">
-                                    <label for="results-per-page">results per page:</label>
-                                    <select name="results-per-page" wire:model="results_per_page">
-                                        <option value="10">10</option>
-                                        <option value="25">25</option>
-                                        <option value="50">50</option>
-                                        <option value="100">100</option>
-                                        <option value="150">150</option>
-                                        <option value="200">200</option>
-                                    </select>
+                                    results per page: {{$pagination}}
                                 </th>
+                                <th colspan="{{ $columnCount+2}}"></th>
                             </tr>
                         </thead>
                         <thead>
                             <tr>
-                                <th scope="col">user id</th>
-                                <th scope="col">name</th>
-                                <th scope="col">email</th>
-                                <th scope="col">email verified at</th>
+                                @foreach ($columns as $columnName )
+                                    <th>
+                                    {{str_replace('_',' ',$columnName )}}
+                                    </th>
+                                @endforeach
                                 <th colspan="2">actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
-                                @livewire('crudwire::show', ['user' => $user], key($user->id))
+                                @livewire('crudwire::show', ['user' => $user, 'columns' => $columns ], key($user->id))
                             @endforeach
                         </tbody>
                     </table>
